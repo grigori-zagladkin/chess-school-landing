@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$accentColor: #3949a0;
+$contactButtonColor: #31353e;
+
+.main {
+  background-image: url("../../assets/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  .mainDescr {
+    @apply text-white flex flex-col gap-8 text-3xl font-bold pl-10 pt-48 max-w-lg;
+    text-shadow: black 2px 2px;
+  }
+}
+
+.header {
+  @apply hidden fixed bg-opacity-25 h-14 sm:flex justify-center items-center py-5 z-20;
+  background: rgba(144, 144, 144, 0.4);
+
+  > nav {
+    > ul {
+      @apply justify-center w-screen text-white gap-10 text-xl font-medium;
+      > li {
+        @apply cursor-pointer hover:opacity-80 transition-opacity;
+      }
+    }
+  }
+
+  &Adaptive {
+    @apply fixed z-40 w-full;
+    &Top {
+      @apply bg-stone-700 py-2 px-4 w-full;
+    }
+    &Burger {
+      @apply transition-transform relative z-50 w-12 h-12 flex flex-col gap-1 items-center justify-center p-3;
+      > span {
+        @apply block w-5 h-1 bg-white rounded-3xl;
+      }
+      &.isOpen {
+        > span {
+          @apply w-6 transition-transform duration-700;
+          &:first-child {
+            @apply rotate-45 translate-x-[1px] translate-y-[4px];
+          }
+          &:last-child {
+            @apply rotate-[-45deg] translate-x-[1px] translate-y-[-4px];
+          }
+        }
+      }
+    }
+
+    &Content {
+      @apply fixed top-0 left-0 w-64 h-full bg-white shadow-lg transition-transform duration-500 translate-x-[-300px];
+      background-color: #3949a0;
+      &.isOpen {
+        @apply translate-x-0;
+      }
+    }
+  }
+}
+
+.headerScrolled {
+  @apply bg-stone-700;
+}
+
+.registerButton {
+  @apply text-white text-2xl px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity absolute bottom-20 left-[50%] z-20;
+  background-color: $accentColor;
+  transform: translateX(-50%);
+}
+
+.info {
+  @apply flex flex-col justify-center pt-10;
+  &Heading {
+    @apply flex flex-col items-center uppercase mb-6;
+    > p {
+      @apply font-semibold text-xs mb-3 text-center;
+      color: $accentColor;
+    }
+
+    > h2 {
+      @apply font-bold text-2xl text-stone-800 mb-3;
+    }
+
+    > div {
+      @apply h-2 w-11 flex;
+      background-color: $accentColor;
+    }
+  }
+
+  &CardWrapper {
+    @apply grid-cols-1 grid sm:grid-cols-3 text-white pt-4 gap-2 pb-8 px-3;
+    background-color: $accentColor;
+
+    h1 {
+      @apply text-4xl font-bold mb-3;
+    }
+
+    p {
+      @apply mb-2;
+    }
+
+    .firstCard {
+      @apply px-5 w-full h-full min-h-[400px] pb-20 flex flex-col relative justify-end;
+      background-image: url("../../assets/firstInfoCardImage.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .secondCard {
+      @apply px-5 w-full min-h-[400px] pb-20 flex flex-col relative justify-end;
+      background-image: url("../../assets/secondInfoCardImage.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .thirdCard {
+      @apply px-5 w-full min-h-[400px] pb-20 flex flex-col relative justify-end;
+      background-image: url("../../assets/thirdInfoCardImage.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &RegisterButton {
+    @apply text-white px-4 py-3 font-medium hover:opacity-90 transition-opacity z-10 absolute bottom-4 left-5;
+    background-color: $accentColor;
+  }
+
+  &SecondCardWrapper {
+    @apply grid grid-cols-1 sm:grid-cols-3 text-white pt-4;
+    background-color: $accentColor;
+
+    .fourthCard {
+      @apply text-white pb-10;
+      h3 {
+        @apply text-xl mt-4 mb-6 font-semibold pl-5 pr-2;
+      }
+
+      h4 {
+        @apply pl-5 font-semibold text-sm mb-4;
+      }
+
+      p {
+        @apply pl-5 pr-2 text-sm mb-4;
+      }
+
+      div {
+        @apply w-full min-h-[400px];
+        background-image: url("../../assets/fourthCardImage.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
+    .fifthCard {
+      @apply bg-white flex flex-col justify-evenly px-10 pb-6 text-sm text-stone-600;
+      .infoHeading {
+        @apply mt-20 mb-10;
+      }
+
+      > div {
+        @apply flex flex-col items-center;
+        > h4 {
+          @apply font-bold mb-3;
+          color: $accentColor;
+        }
+
+        > ul {
+          @apply flex flex-col justify-center items-center mb-4;
+          li {
+            @apply flex justify-center text-center relative;
+            &::before {
+              @apply block absolute top-2 w-1 h-1 left-[-10px] bg-stone-700 rounded-full;
+              content: "";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.announcement {
+  @apply bg-white py-20 flex justify-center px-10;
+  > div {
+    @apply grid grid-cols-1 sm:grid-cols-2 max-w-5xl;
+    > div {
+      @apply pt-10 text-stone-500 text-opacity-80 text-sm pr-6;
+      h2 {
+        @apply text-3xl uppercase font-bold mb-4;
+        color: $accentColor;
+      }
+
+      p {
+        @apply text-stone-500 text-opacity-80 text-sm font-bold;
+      }
+    }
+
+    .announcementImg {
+      @apply w-full min-h-[360px] sm:min-w-[570px] mt-4 sm:mt-0;
+      background-image: url("../../assets/announcements.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  ul {
+    li {
+      @apply pl-4 relative;
+      &::before {
+        @apply absolute top-0 left-0;
+        content: "-";
+      }
+    }
+  }
+}
+
+.contacts {
+  @apply grid grid-cols-1 sm:grid-cols-2 text-white min-h-[600px];
+  &Info {
+    @apply flex flex-col items-center py-10 gap-8 px-5;
+    background-color: $accentColor;
+
+    > h3 {
+      @apply px-4 py-2 text-white text-sm font-bold w-fit;
+      background-color: $contactButtonColor;
+    }
+
+    > h2 {
+      @apply text-4xl uppercase font-bold text-white;
+    }
+
+    > p {
+      @apply text-center text-opacity-80;
+    }
+
+    > ul {
+      @apply flex flex-col gap-6 text-center font-bold;
+      > li {
+        > a {
+          @apply cursor-pointer;
+          > span {
+            @apply text-sm text-opacity-70 font-thin uppercase cursor-default;
+          }
+        }
+      }
+    }
+  }
+
+  &Map {
+    iframe {
+      @apply w-full min-h-[400px] h-full;
+    }
+  }
+}
+
+.footer {
+  @apply grid grid-cols-2 sm:grid-cols-4 px-10 py-10;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #9f9e9e;
+
+  div {
+    @apply flex flex-col gap-4 items-start sm:items-center;
+  }
+
+  h3 {
+    @apply text-white;
+  }
+
+  ul {
+    @apply flex flex-col items-start sm:items-center gap-3 text-sm;
+  }
+}
+
+//.registerForm {
+//  &Inner {}
+//  &Header {}
+//  &CloseButton {}
+//  &Wrapper {
+//    @apply z-40 w-[800px];
+//    background-color: $accentColor;
+//    &Open {
+//      @apply
+//    }
+//    &Close {
+//
+//    }
+//  }
+//
+//}
