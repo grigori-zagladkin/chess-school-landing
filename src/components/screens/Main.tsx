@@ -3,7 +3,7 @@ import styles from "./Main.module.scss";
 import VK from "../../assets/VK.svg";
 import logo from "../../assets/logo.svg";
 import { useMediaQuery } from "../../hooks";
-import { Link, animateScroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 interface IHeader {
   headerColor?: string;
@@ -59,10 +59,10 @@ const MobileHeader: FC = () => {
     <header className={styles.headerAdaptive}>
       <div className={styles.headerAdaptiveTop}>
         <div
-          onDoubleClick={(e) => {
+          onDoubleClick={() => {
             setIsOpen(!isOpen);
           }}
-          onClick={(e) => {
+          onClick={() => {
             setIsOpen(!isOpen);
           }}
           className={`${styles.headerAdaptiveBurger} ${
@@ -206,6 +206,7 @@ const Footer: FC = () => {
 
 const Contacts: FC = () => {
   return (
+    //@ts-ignore
     <section name="contacts" className={styles.contacts}>
       <div className={styles.contactsInfo}>
         <h3>Контакты</h3>
@@ -330,7 +331,8 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
         <h2>Выберите свой Курс</h2>
         <div></div>
       </div>
-      <div name="courses" className={styles.infoCardWrapper}>
+      /* @ts-ignore */
+      <div data-name="courses" className={styles.infoCardWrapper}>
         <div className={styles.firstCard}>
           <h1>Индивидуальные занятия</h1>
           <p>
@@ -365,7 +367,8 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
           <h4 className="ml-16">Успей и ты!</h4>
         </div>
         <div className={styles.fifthCard}>
-          <div name="aboutus" className={styles.infoHeading}>
+          //@ts-ignore
+          <div data-name="aboutus" className={styles.infoHeading}>
             <p>Erathia</p>
             <h2>о нас</h2>
             <div></div>
@@ -409,6 +412,7 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
 
 const Announcements: FC = () => {
   return (
+    //@ts-ignore
     <section name="events" className={styles.announcement}>
       <div>
         <div className="flex flex-col gap-1">
@@ -471,7 +475,6 @@ interface IRegisterFormProps {
 type EducationType = "Группа" | "Мини-группа" | "Индивидуальный";
 
 const RegisterForm: FC<IRegisterFormProps> = ({ isVisible, setIsVisible }) => {
-  const width = window.innerWidth > 600 ? 600 : window.innerWidth;
   const educationTypes: Array<EducationType> = [
     "Группа",
     "Мини-группа",
@@ -485,6 +488,7 @@ const RegisterForm: FC<IRegisterFormProps> = ({ isVisible, setIsVisible }) => {
   const [isVisibleEducationType, setIsVisibleEducationType] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("+7");
   const [description, setDescription] = useState("");
+  //@ts-ignore
   const [isVisibleResult, setIsVisibleResult] = useState(false);
   const url =
     "https://api.telegram.org/bot6616108346:AAEwnbzKeeol025spq1tnPljulevsMf5NlU/sendMessage?chat_id=-1001815006447&parse_mode=html";
@@ -530,7 +534,7 @@ const RegisterForm: FC<IRegisterFormProps> = ({ isVisible, setIsVisible }) => {
           className={
             "cursor-pointer select-none hidden sm:block relative sm:top-[-10px] top-[-30px] right-[-100px] sm:right-[-80px] self-end"
           }
-          onTouchStart={(e) => {
+          onTouchStart={() => {
             setIsVisible(false);
           }}
           onClick={handlerClose}
@@ -665,6 +669,7 @@ const MobileRegisterForm: FC = () => {
   const [isVisibleEducationType, setIsVisibleEducationType] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("+7");
   const [description, setDescription] = useState("");
+  //@ts-ignore
   const [isVisibleResult, setIsVisibleResult] = useState(false);
   const url =
     "https://api.telegram.org/bot6616108346:AAEwnbzKeeol025spq1tnPljulevsMf5NlU/sendMessage?chat_id=-1001815006447&parse_mode=html";
@@ -693,9 +698,10 @@ const MobileRegisterForm: FC = () => {
         error;
       });
   };
-
   return (
+    //@ts-ignore
     <div
+      //@ts-ignore
       name="mobileform"
       className={`text-white w-[600px] max-w-full bg-[#3949A0] flex flex-col items-center py-8 px-5 duration-700 transition-transform`}
     >
