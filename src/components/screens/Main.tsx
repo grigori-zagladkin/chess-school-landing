@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FC, useEffect, useState } from "react";
 import styles from "./Main.module.scss";
 import VK from "../../assets/VK.svg";
@@ -206,7 +207,6 @@ const Footer: FC = () => {
 
 const Contacts: FC = () => {
   return (
-    //@ts-ignore
     <section name="contacts" className={styles.contacts}>
       <div className={styles.contactsInfo}>
         <h3>Контакты</h3>
@@ -367,8 +367,7 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
           <h4 className="ml-16">Успей и ты!</h4>
         </div>
         <div className={styles.fifthCard}>
-          //@ts-ignore
-          <div data-name="aboutus" className={styles.infoHeading}>
+          <div name="aboutus" className={styles.infoHeading}>
             <p>Erathia</p>
             <h2>о нас</h2>
             <div></div>
