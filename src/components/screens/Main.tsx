@@ -331,8 +331,7 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
         <h2>Выберите свой Курс</h2>
         <div></div>
       </div>
-      /* @ts-ignore */
-      <div data-name="courses" className={styles.infoCardWrapper}>
+      <div name="courses" className={styles.infoCardWrapper}>
         <div className={styles.firstCard}>
           <h1>Индивидуальные занятия</h1>
           <p>
@@ -382,7 +381,7 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
               <li>Стоимость занятий ниже, чем у конкурентов на 15-30%</li>
               <li>Собственная методика обучения</li>
               <li>Возможность пропускать занятия без потери средств</li>
-              <li>Бесплатные еженедельные онлайн турниры</li>
+              <li>Еженедельные 3-х часовые игровые тренировки</li>
               <li>Шахматный инвентарь высшего качества</li>
               <li>Удобное местоположение</li>
               <li>Внеклассная помощь с обучением</li>
@@ -411,7 +410,6 @@ const InformationSection: FC<IRegisterButton> = ({ setIsVisible }) => {
 
 const Announcements: FC = () => {
   return (
-    //@ts-ignore
     <section name="events" className={styles.announcement}>
       <div>
         <div className="flex flex-col gap-1">
@@ -572,7 +570,9 @@ const RegisterForm: FC<IRegisterFormProps> = ({ isVisible, setIsVisible }) => {
           </div>
         </div>
         <div className={`min-w-full`}>
-          <div className={`leading-none text-xs`}>Сколько тебе лет?</div>
+          <div className={`leading-none text-xs`}>
+            Сколько лет Вам / Вашему ребёнку?
+          </div>
           <input
             value={age}
             onChange={(e) => {
@@ -747,7 +747,9 @@ const MobileRegisterForm: FC = () => {
           </div>
         </div>
         <div className={`min-w-full`}>
-          <div className={`leading-none text-xs`}>Сколько тебе лет?</div>
+          <div className={`leading-none text-xs`}>
+            Сколько лет Вам / Вашему ребёнку?
+          </div>
           <input
             value={age}
             onChange={(e) => {
